@@ -17,15 +17,14 @@ def pubsub_to_email(event, context):
     pubsub_message = base64.b64decode(event['data']).decode('utf-8')
     message = json.loads(pubsub_message)
 
-
     if "red" in message["status"]:
         subject = f'ALERT: {message["status"]}'
         body = f"""
         To whom it may concern, 
 
         {message["notification"]}
+        
         Further steps may need to be taken.
-
         Regards, 
         COMPANY SUGAR
         """

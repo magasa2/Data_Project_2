@@ -3,20 +3,18 @@ import json
 import smtplib
 import ssl
 from email.message import EmailMessage
-
 from concurrent.futures import TimeoutError
 from google.cloud import pubsub_v1
 
 # Input variables
 project_id = "your-project-id"
 subscription_name = "your-subscription-id"
+
 # Number of seconds the subscriber should listen for messages
 timeout = 5.0
 email_sender = 'sender_address' 
 email_password = 'sender_password'
 email_receiver = 'receiver_address'
-
-
 
 #Close PubSub Client
 class PubSubMessages:
@@ -71,9 +69,5 @@ def sending():
     finally:
         pubsub_class.__exit__()
     
-
-
-    
-
 # Executing the code by calling the function        
 sending()
